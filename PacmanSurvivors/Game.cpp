@@ -24,7 +24,7 @@ void Game::ProcessInput()
 {
 	while(auto event = m_Window.pollEvent())
 	{
-		if (event->is <sf::Event::Closed>())
+		if (event->is<sf::Event::Closed>())
 			m_Window.close();
 	}
 }
