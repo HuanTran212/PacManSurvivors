@@ -33,6 +33,10 @@ void Game::processInput()
 void Game::update(float dt)
 {
 	m_Player.update(dt);
+	m_Player.getPosition();
+
+	sf::Vector2f playerPos = m_Player.getPosition();
+
 }
 
 //Hàm vẽ nội dung lên cửa sổ
@@ -41,6 +45,7 @@ void Game::render()
 	m_Window.clear(sf::Color::Black);
 
 	m_Player.draw(m_Window);
-
+	m_Ghost.draw(m_Window);
+	   
 	m_Window.display();
 }

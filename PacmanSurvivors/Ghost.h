@@ -1,4 +1,5 @@
 ﻿#include <SFML/Graphics.hpp>
+#include "IEnemy.h"
 
 class Ghost
 {
@@ -8,12 +9,13 @@ private:
     sf::Vector2f velocity;   // Hướng di chuyển hiện tại
 
 public:
-    Ghost(sf::Texture& texture, sf::Vector2f startPos, float moveSpeed = 100.f);
+	Ghost(); // Hàm khởi tạo
 
-    void update(float dt, sf::Vector2f playerPos);
-    void draw(sf::RenderWindow& window);
+	void update(float dt, sf::Vector2f playerPos); // Cập nhật vị trí con ma dựa trên vị trí người chơi
+	void draw(sf::RenderWindow& window); // Vẽ con ma lên cửa sổ
 
     // Có thể thêm getter nếu cần
-    sf::Vector2f getPosition() const { return m_sprite.getPosition(); }
-    void setPosition(sf::Vector2f pos) { m_sprite.setPosition(pos); }
+	sf::Vector2f getPosition() const; // Lấy vị trí hiện tại của con ma
+	void setPosition(sf::Vector2f pos); // Đặt vị trí của con ma
+
 };

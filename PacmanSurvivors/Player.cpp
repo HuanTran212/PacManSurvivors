@@ -30,3 +30,11 @@ void Player::update(float dt) {
 void Player::draw(sf::RenderWindow& window) {
     window.draw(m_sprite);
 }
+
+sf::Vector2f Player::getPosition() const {
+    return m_sprite.getPosition();
+}
+
+int Player::getHP() const {
+    return m_hp;
+}
