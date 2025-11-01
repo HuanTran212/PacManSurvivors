@@ -17,11 +17,11 @@ void Player::handleInput(float dt) {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
         movement.y -= m_speed * dt;
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
         movement.y += m_speed * dt;
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
         movement.x -= m_speed * dt;
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
         movement.x += m_speed * dt;
 
     m_sprite.move(movement);
