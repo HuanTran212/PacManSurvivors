@@ -1,12 +1,12 @@
 ﻿#include "Ghost.h"
+#include "AssetManager.h"
 #include <cmath>
 
-Ghost::Ghost(sf::Texture& texture, sf::Vector2f startPos, float moveSpeed)
-    : m_sprite(texture),  // khởi tạo sprite bằng texture
-    m_speed(moveSpeed),
-    velocity(0.f, 0.f)
+Ghost::Ghost()
+    : m_sprite(AssetManager::getInstance().getTexture("Ghost.png")),
+	velocity(0.f, 0.f), m_speed(100.0f)
 {
-    m_sprite.setPosition(startPos);
+    m_sprite.setPosition({300, 400});
 }
 
 
@@ -32,6 +32,15 @@ void Ghost::update(float dt, sf::Vector2f playerPos)
 
 void Ghost::draw(sf::RenderWindow& window)
 {
-    // Tạm thời chưa code gì ở đây
-    // window.draw(sprite);
+    window.draw(m_sprite);
+}
+
+sf::Vector2f Ghost::getPosition() const
+{
+    return m_sprite.getPosition();
+}
+
+void Ghost::setPosition(sf::Vector2f pos)
+{
+    m_sprite.setPosition(pos);
 }
