@@ -1,21 +1,24 @@
-﻿#include <SFML/Graphics.hpp>
+﻿#pragma once
+#include <SFML/Graphics.hpp>
 #include "IEnemy.h"
 
-class Ghost
+class Ghost : public IEnemy
 {
 private:
-    sf::Sprite m_sprite;       // Hình ảnh con ma
-    float m_speed;             // Tốc độ di chuyển
-    sf::Vector2f velocity;   // Hướng di chuyển hiện tại
+    sf::Sprite m_sprite;
+    float m_speed;
+    sf::Vector2f velocity;
+    float m_health; // để dùng với TakeDamage và IsDead
 
 public:
-	Ghost(); // Hàm khởi tạo
+    Ghost(sf::Vector2f spawnPos = { 300.f, 400.f });
 
-	void update(float dt, sf::Vector2f playerPos); // Cập nhật vị trí con ma dựa trên vị trí người chơi
-	void draw(sf::RenderWindow& window); // Vẽ con ma lên cửa sổ
+    void update(float dt, sf::Vector2f playerPos) override;
+    void draw(sf::RenderWindow& window) override;
+    sf::FloatRect getBounds() const override;
+    void takeDamage(float damage) override;
+    bool isDead() const override;
 
-    // Có thể thêm getter nếu cần
-	sf::Vector2f getPosition() const; // Lấy vị trí hiện tại của con ma
-	void setPosition(sf::Vector2f pos); // Đặt vị trí của con ma
-
+    sf::Vector2f getPosition() const;
+    void setPosition(sf::Vector2f pos);
 };

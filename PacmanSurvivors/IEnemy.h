@@ -1,20 +1,23 @@
-﻿#include <SFML/Graphics.hpp>
-
-// Đây là "Interface" (lớp trừu tượng) cho TẤT CẢ kẻ thù
-// Nó định nghĩa các hàm "ảo" (virtual) mà mọi kẻ thù BẮT BUỘC phải có.
+﻿#pragma once
+#include <SFML/Graphics.hpp>
 
 class IEnemy
 {
 public:
-	// Hàm hủy ảo
-	virtual ~IEnemy() {}
+    virtual ~IEnemy() {}
 
-	// Hàm cập nhật logic (nhận vị trí Player để tính AI)
-	virtual void update(float dt, sf::Vector2f playerPosition) = 0;
+    // Cập nhật logic (AI)
+    virtual void update(float dt, sf::Vector2f playerPosition) = 0;
 
-	// Hàm vẽ
-	virtual void draw(sf::RenderWindow& window) = 0;
+    // Vẽ kẻ địch
+    virtual void draw(sf::RenderWindow& window) = 0;
 
-	// Hàm lấy vùng va chạm
-	virtual sf::FloatRect getBounds() const = 0;
+    // Lấy vùng va chạm
+    virtual sf::FloatRect getBounds() const = 0;
+
+    // Nhận sát thương
+    virtual void takeDamage(float damage) = 0;
+
+    // Kiểm tra còn sống không
+    virtual bool isDead() const = 0;
 };
