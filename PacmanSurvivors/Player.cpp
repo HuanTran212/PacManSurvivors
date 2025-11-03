@@ -2,6 +2,7 @@
 #include "AssetManager.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "PelletShooter.h"
 
 Player::Player()
 	: m_sprite(AssetManager::getInstance().getTexture("Player.png")),

@@ -4,7 +4,7 @@
 Game::Game()
 	: m_Window(sf::VideoMode({ 1280, 720 }), "Pacman Survivors")
 {
-	m_Window.setFramerateLimit(30);
+	m_Window.setFramerateLimit(60);
 }
 
 //Hàm vòng lặp chính của game
