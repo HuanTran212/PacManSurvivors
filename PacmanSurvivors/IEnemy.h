@@ -20,4 +20,10 @@ public:
 
     // Kiểm tra còn sống không
     virtual bool isDead() const = 0;
+
+	// Lấy vị trí hiện tại
+	virtual sf::Vector2f getPosition() const = 0;
+
+    //
+	virtual void applySeparation(const std::vector<std::unique_ptr<IEnemy>>& others) = 0;
 };

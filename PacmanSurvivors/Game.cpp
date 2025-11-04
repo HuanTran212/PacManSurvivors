@@ -33,7 +33,8 @@ void Game::processInput()
 void Game::update(float dt)
 {
 	m_Player.update(dt, m_Projectiles);
-	m_Ghost.update(dt, m_Player.getPosition());
+
+	m_enemySpawner.update(dt, m_Player.getPosition());
 
 	for (auto& proj : m_Projectiles)
 	{
@@ -53,9 +54,12 @@ void Game::update(float dt)
 void Game::render()
 {
 	m_Window.clear(sf::Color::Black);
-
 	m_Player.draw(m_Window);
-	m_Ghost.draw(m_Window);
+
+	for(auto& enemy : m_enemySpawner.getEnemies())
+	{
+		enemy->draw(m_Window);
+	}
 
 	// Vẽ tất cả các đạn
 	for (auto& proj : m_Projectiles)

@@ -55,3 +55,24 @@ void Ghost::setPosition(sf::Vector2f pos)
 {
     m_sprite.setPosition(pos);
 }
+
+void Ghost::applySeparation(const std::vector<std::unique_ptr<IEnemy>>& others)
+{
+    sf::Vector2f repel(0.f, 0.f);
+    float desiredDistance = 40.f; // khoảng cách tối thiểu giữa quái
+
+    for (auto& other : others)
+    {
+        if (other.get() == this) continue;
+
+        sf::Vector2f diff = m_sprite.getPosition() - other->getPosition();
+        float len = std::sqrt(diff.x * diff.x + diff.y * diff.y);
+        if (len > 0 && len < desiredDistance)
+        {
+            diff /= len; // hướng đẩy
+            repel += diff * (desiredDistance - len);
+        }
+    }
+
+    m_sprite.move(repel * 0.1f); // đẩy nhẹ ra
+}

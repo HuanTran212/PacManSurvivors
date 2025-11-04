@@ -19,6 +19,7 @@ public:
     void takeDamage(float damage) override;
     bool isDead() const override;
 
-    sf::Vector2f getPosition() const;
+    sf::Vector2f getPosition() const override;
     void setPosition(sf::Vector2f pos);
+	void applySeparation(const std::vector<std::unique_ptr<IEnemy>>& others);
 };

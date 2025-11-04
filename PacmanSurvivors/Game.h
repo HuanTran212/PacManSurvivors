@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <SFML/Graphics.hpp>
 #include "Player.h"
-#include "Ghost.h"
+#include "EnemySpawner.h"
 #include "Projectile.h"
 
 class Game
@@ -19,8 +19,8 @@ private:
 	sf::Clock m_Clock;	//đồng hồ để tính delta time
 
 	Player m_Player; //đối tượng người chơi
-
-	Ghost m_Ghost; //đối tượng con ma
+	EnemySpawner m_enemySpawner; //đối tượng tạo kẻ địch
 	
 	std::vector<Projectile> m_Projectiles;
+	std::vector<std::unique_ptr<IEnemy>> m_enemies; //danh sách kẻ địch
 };
