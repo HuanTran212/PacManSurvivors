@@ -28,6 +28,7 @@ void PlayingState::update(float dt)
 	m_enemySpawner.update(dt, m_player.getPosition());
 	for (auto& proj : m_Projectiles)
 	{
+		if (!proj.isDestroyed())
 		proj.update(dt);
 	}
 
@@ -35,7 +36,8 @@ void PlayingState::update(float dt)
 		std::remove_if(m_Projectiles.begin(), m_Projectiles.end(),
 			[](const Projectile& proj) {
 				sf::Vector2f pos = proj.getPosition();
-				return (pos.x < 0 || pos.x > 1280 || pos.y < 0 || pos.y > 720);
+				return proj.isDestroyed() ||
+					(pos.x < 0 || pos.x > 1280 || pos.y < 0 || pos.y > 720);
 			}),
 		m_Projectiles.end());
 
@@ -53,6 +55,7 @@ void PlayingState::draw()
 	}
 	for (auto& proj : m_Projectiles)
 	{
+		if (!proj.isDestroyed())
 		proj.draw(m_window);
 	}
 	m_game.getUIManager().draw(m_game.getWindow());
