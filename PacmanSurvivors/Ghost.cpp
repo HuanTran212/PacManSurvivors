@@ -5,7 +5,7 @@
 Ghost::Ghost(sf::Vector2f spawnPos)
     : m_sprite(AssetManager::getInstance().getTexture("Ghost.png")),
     m_speed(100.0f),
-    velocity(0.f, 0.f),
+    m_velocity(0.f, 0.f),
     m_health(100.f)
 {
     m_sprite.setPosition(spawnPos);
@@ -18,10 +18,15 @@ void Ghost::update(float dt, sf::Vector2f playerPos)
 
     float length = std::sqrt(direction.x * direction.x + direction.y * direction.y);
     if (length != 0)
-        direction /= length;
-
-    velocity = direction * m_speed;
-    m_sprite.move(velocity * dt);
+    {
+		direction /= length; // Chuẩn hóa vector hướng
+        m_velocity = direction * m_speed;
+		m_sprite.move(m_velocity * dt);
+    }
+    else
+    {
+        m_velocity = sf::Vector2f(0.f, 0.f);
+    }
 }
 
 void Ghost::draw(sf::RenderWindow& window)
@@ -34,7 +39,7 @@ sf::FloatRect Ghost::getBounds() const
     return m_sprite.getGlobalBounds();
 }
 
-void Ghost::takeDamage(float damage)
+void Ghost::takeDamage(int damage)
 {
     m_health -= damage;
     if (m_health < 0.f)
@@ -44,6 +49,11 @@ void Ghost::takeDamage(float damage)
 bool Ghost::isDead() const
 {
     return m_health <= 0.f;
+}
+
+int Ghost::getCollisionDamage() const
+{
+    return 5;
 }
 
 sf::Vector2f Ghost::getPosition() const

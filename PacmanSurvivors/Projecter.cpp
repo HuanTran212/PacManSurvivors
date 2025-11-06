@@ -2,7 +2,7 @@
 #include <cmath>
 
 Projectile::Projectile(const sf::Texture& texture, sf::Vector2f playerPos, sf::Vector2f dir, float speed)
-	:m_sprite(texture), m_direction(dir), m_velocity(0.f, 0.f), m_speed(speed)
+	:m_sprite(texture), m_direction(dir), m_velocity(0.f, 0.f), m_speed(speed), m_damage(10)
 {
 	m_sprite.setPosition(playerPos);
 	m_sprite.setScale({ 0.5f, 0.5f });
@@ -17,9 +17,19 @@ Projectile::Projectile(const sf::Texture& texture, sf::Vector2f playerPos, sf::V
 	}
 }
 
+int Projectile::getDamage() const
+{
+	return 50;
+}
+
+void Projectile::setDamage(int damage)
+{
+	m_damage = damage;
+}
+
 void Projectile::update(float dt)
 {
-	m_sprite.move(m_direction * (m_speed * dt));
+	m_sprite.move(m_velocity * (m_speed * dt));
 }
 
 void Projectile::draw(sf::RenderWindow& window)
@@ -27,10 +37,15 @@ void Projectile::draw(sf::RenderWindow& window)
 	window.draw(m_sprite);
 }
 
+void Projectile::destroy()
+{
+	m_sprite.setPosition({ -100.f, -100.f}); // Di chuyển đạn ra
+}
+
 sf::Vector2f Projectile::getPosition() const{
 	return m_sprite.getPosition();
 }
 
-sf::FloatRect Projectile::getGlobalBounds() const{
+sf::FloatRect Projectile::getBounds() const{
 	return m_sprite.getGlobalBounds();
 }

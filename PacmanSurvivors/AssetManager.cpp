@@ -19,9 +19,8 @@ const sf::Texture& AssetManager::getTexture(const std::string& filename) {
         std::cerr << "?? [AssetManager] Failed to load texture: " << filename << std::endl;
     } else {
         std::cout << "? [AssetManager] Loaded texture: " << filename << std::endl;
+        m_textures[filename] = std::move(texture);
     }
-
-    m_textures[filename] = std::move(texture);
     return m_textures[filename];
 }
 

@@ -13,10 +13,10 @@ public:
     virtual void draw(sf::RenderWindow& window) = 0;
 
     // Lấy vùng va chạm
-    virtual sf::FloatRect getBounds() const = 0;
+    virtual sf::FloatRect getBounds() const {return sf::FloatRect();};
 
     // Nhận sát thương
-    virtual void takeDamage(float damage) = 0;
+	virtual void takeDamage(int damage) = 0;
 
     // Kiểm tra còn sống không
     virtual bool isDead() const = 0;
@@ -24,6 +24,9 @@ public:
 	// Lấy vị trí hiện tại
 	virtual sf::Vector2f getPosition() const = 0;
 
-    //
+	// Đặt vị trí
 	virtual void applySeparation(const std::vector<std::unique_ptr<IEnemy>>& others) = 0;
+
+	// Lấy sát thương khi va chạm với người chơi
+	virtual int getCollisionDamage() const = 0;
 };

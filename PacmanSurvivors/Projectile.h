@@ -7,12 +7,14 @@ private:
     sf::Vector2f m_direction;
     sf::Vector2f m_velocity;
     float m_speed;
+	int m_damage;
 public:
     Projectile(const sf::Texture& texture, sf::Vector2f playerPos, sf::Vector2f dir, float speed);
-
+	int getDamage() const;
+	void setDamage(int damage);
     void update(float dt);
     void draw(sf::RenderWindow& window);
-
+	void destroy();
     sf::Vector2f getPosition() const;
-    sf::FloatRect getGlobalBounds() const;
+    sf::FloatRect getBounds() const;
 };

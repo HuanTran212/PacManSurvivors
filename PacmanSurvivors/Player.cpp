@@ -8,7 +8,8 @@ Player::Player()
 	: m_sprite(AssetManager::getInstance().getTexture("Player.png")),
 	m_speed(200.f),
     m_hp(100),
-	m_xp(0)
+	m_xp(0),
+    m_level(1)
 {
 	m_animator = std::make_unique<Animator>(m_sprite);
 
@@ -69,7 +70,7 @@ Player::Player()
 
 Player::~Player() {};
 
-void Player::handleInput(float dt) {
+void Player::processInput(float dt) {
     sf::Vector2f movement(0.f, 0.f);
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
@@ -91,13 +92,13 @@ void Player::handleInput(float dt) {
     m_sprite.move(movement);
 }
 
-void Player::update(float dt, std::vector<Projectile>& projectiles) {
-	handleInput(dt);
+void Player::update(float dt, std::vector<Projectile>& projectiles, const std::vector<std::unique_ptr<IEnemy>>& enemies) {
+	processInput(dt);
     m_animator->update(dt);
 
 	// Cập nhật vũ khí
     for (auto& weapon : m_weapons) {
-        weapon->update(dt, m_sprite.getPosition(), projectiles);
+        weapon->update(dt, m_sprite.getPosition(), projectiles, enemies);
     }
 }
 
@@ -109,11 +110,45 @@ sf::Vector2f Player::getPosition() const {
     return m_sprite.getPosition();
 }
 
-int Player::getHP() {
+sf::FloatRect Player::getBounds() const
+{
+    sf::Vector2f pos = m_sprite.getPosition();
+    // Giả sử sprite của bạn có nhiều khoảng trống và
+    // nhân vật thật chỉ rộng 32x32 pixel ở giữa
+    // (Bạn sẽ cần điều chỉnh các con số 112, 112, 32, 32 cho phù hợp)
+    float left = pos.x + 112; // 112 = (256 - 32) / 2
+    float top = pos.y + 112;  // 112 = (256 - 32) / 2
+    sf::FloatRect bounds({left, top} , { 32.f, 32.f});
+    return bounds;
+}
+
+int Player::getHP() const
+{
     return m_hp;
+}
+
+int Player::getLevel() const
+{
+	return m_level;
+}
+
+int Player::getXP() const
+{
+	return m_xp;
 }
 
 void Player::takeDamage(int damage) {
     m_hp -= damage;
     std::cout << "Player took " << damage << " damage! HP = " << m_hp << std::endl;
+}
+
+void Player::addWeapon(std::unique_ptr<IWeapon> weapon)
+{
+	m_weapons.push_back(std::move(weapon));
+}
+
+int Player::getXPToNextLevel() const
+{
+    int xpToNextLevel = m_level + 20;
+    return xpToNextLevel;
 }

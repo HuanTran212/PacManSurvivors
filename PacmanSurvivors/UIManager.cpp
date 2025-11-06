@@ -1,41 +1,50 @@
-// UIManager.cpp
-#include "UIManager.h"
-#include <iostream>
+﻿#include "UIManager.h"
+#include "AssetManager.h"
+#include <string>
 
 UIManager::UIManager()
+	: m_font(AssetManager::getInstance().getFont("pixel.ttf")),
+    m_hpText(m_font),
+    m_xpText(m_font),
+	m_levelText(m_font)
 {
-    if (!m_font.loadFromFile("assets/fonts/arial.ttf"))
-        std::cerr << "Error loading font\n";
-
-    m_hpBarBack.setSize(sf::Vector2f(200.f, 20.f));
-    m_hpBarBack.setFillColor(sf::Color(50, 50, 50));
-    m_hpBarBack.setPosition(20.f, 20.f);
-
-    m_hpBar.setSize(sf::Vector2f(200.f, 20.f));
-    m_hpBar.setFillColor(sf::Color::Red);
-    m_hpBar.setPosition(20.f, 20.f);
-
+    // Cài đặt cho HP Text
     m_hpText.setFont(m_font);
-    m_hpText.setCharacterSize(16);
-    m_hpText.setFillColor(sf::Color::White);
-    m_hpText.setPosition(20.f, 45.f);
+    m_hpText.setCharacterSize(24);
+    m_hpText.setFillColor(sf::Color::Red);
+    m_hpText.setPosition({ 20.f, 10.f }); // Vị trí ở góc trên bên trái
+    m_hpText.setString("HP: 100"); // Giá trị mặc định
 
-    m_scoreText.setFont(m_font);
-    m_scoreText.setCharacterSize(16);
-    m_scoreText.setFillColor(sf::Color::White);
-    m_scoreText.setPosition(20.f, 70.f);
+    // Cài đặt cho Level Text
+    m_levelText.setFont(m_font);
+    m_levelText.setCharacterSize(24);
+    m_levelText.setFillColor(sf::Color::White);
+    m_levelText.setPosition({ 20.f, 40.f }); // Vị trí ở dưới HP
+    m_levelText.setString("LVL: 1"); // Giá trị mặc định
+
+    // Cài đặt cho XP Text
+    m_xpText.setFont(m_font);
+    m_xpText.setCharacterSize(24);
+    m_xpText.setFillColor(sf::Color::Cyan);
+    m_xpText.setPosition({ 20.f, 70.f }); // Vị trí ở dưới Level
+    m_xpText.setString("XP: 0 / 100"); // Giá trị mặc định
 }
 
-void UIManager::draw(sf::RenderWindow& window, int playerHP, int maxHP, int score)
+void UIManager::update(const Player& player)
 {
-    float hpPercent = static_cast<float>(playerHP) / static_cast<float>(maxHP);
-    m_hpBar.setSize(sf::Vector2f(200.f * hpPercent, 20.f));
+	int xpToNextLevel = player.getXPToNextLevel();
+	int playerHP = player.getHP();
+	int playerLevel = player.getLevel();
+	int playerXP = player.getXP();
+    // Dùng std::to_string để chuyển số (int) thành chữ (string)
+    m_hpText.setString("HP: " + std::to_string(playerHP));
+    m_levelText.setString("LVL: " + std::to_string(playerLevel));
+    m_xpText.setString("XP: " + std::to_string(playerXP) + " / " + std::to_string(xpToNextLevel));
+}
 
-    m_hpText.setString("HP: " + std::to_string(playerHP) + " / " + std::to_string(maxHP));
-    m_scoreText.setString("Score: " + std::to_string(score));
-
-    window.draw(m_hpBarBack);
-    window.draw(m_hpBar);
+void UIManager::draw(sf::RenderWindow& window)
+{
     window.draw(m_hpText);
-    window.draw(m_scoreText);
+    window.draw(m_levelText);
+    window.draw(m_xpText);
 }

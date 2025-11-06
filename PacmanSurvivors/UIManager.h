@@ -1,17 +1,20 @@
-#pragma once
+﻿#pragma once
 #include <SFML/Graphics.hpp>
+#include "Player.h"
+#include <string>
 
 class UIManager
 {
-private:
-    sf::Font m_font;
-    sf::Text m_hpText;
-    sf::Text m_scoreText;
-    sf::RectangleShape m_hpBarBack;
-    sf::RectangleShape m_hpBar;
-
 public:
+    // Hàm dựng (Constructor)
     UIManager();
-    void draw(sf::RenderWindow& window, int playerHP, int maxHP, int score);
+    void update(const Player& player);
+    void draw(sf::RenderWindow& window);
+
+private:
+    const sf::Font& m_font;
+    sf::Text m_hpText;     // Hiển thị HP
+    sf::Text m_xpText;     // Hiển thị XP
+    sf::Text m_levelText;  // Hiển thị Cấp độ
+    // (Bạn có thể thêm các thanh máu/xp bằng sf::RectangleShape ở đây)
 };
-#pragma once
