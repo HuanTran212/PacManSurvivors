@@ -86,3 +86,8 @@ void Ghost::applySeparation(const std::vector<std::unique_ptr<IEnemy>>& others)
 
     m_sprite.move(repel * 0.1f); // đẩy nhẹ ra
 }
+
+int Ghost::getXPReward() const
+{
+    return 10;
+}

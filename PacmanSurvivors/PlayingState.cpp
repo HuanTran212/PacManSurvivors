@@ -25,7 +25,16 @@ void PlayingState::processInput()
 void PlayingState::update(float dt)
 {
 	m_player.update(dt, m_Projectiles, m_enemySpawner.getEnemies());
-	m_enemySpawner.update(dt, m_player.getPosition());
+	int xpGained = m_enemySpawner.update(dt, m_player.getPosition());
+	if (xpGained > 0)
+	{
+		int leveledUp = m_player.addXP(xpGained);
+		if (leveledUp > 0)
+		{
+			// Chuyển sang trạng thái nâng cấp
+		}
+	}
+
 	for (auto& proj : m_Projectiles)
 	{
 		if (!proj.isDestroyed())

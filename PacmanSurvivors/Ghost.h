@@ -22,4 +22,5 @@ public:
     sf::Vector2f getPosition() const override;
     void setPosition(sf::Vector2f pos);
 	void applySeparation(const std::vector<std::unique_ptr<IEnemy>>& others);
+	int getXPReward() const override;
 };

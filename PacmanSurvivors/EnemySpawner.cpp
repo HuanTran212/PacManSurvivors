@@ -10,7 +10,7 @@ EnemySpawner::EnemySpawner(float interval, sf::Vector2f areaMin, sf::Vector2f ar
 {
 }
 
-void EnemySpawner::update(float dt, sf::Vector2f playerPosition)
+int EnemySpawner::update(float dt, sf::Vector2f playerPosition)
 {
     spawnTimer += dt;
 
@@ -23,19 +23,24 @@ void EnemySpawner::update(float dt, sf::Vector2f playerPosition)
 
         m_enemies.push_back(std::make_unique<Ghost>(sf::Vector2f(x, y)));
     }
-
+    
+	int totalXP = 0;
     for (auto it = m_enemies.begin(); it != m_enemies.end(); )
     {
         (*it)->update(dt, playerPosition);
 
         if ((*it)->isDead())
+        {
+            totalXP += (*it)->getXPReward();
             it = m_enemies.erase(it);
+        }
         else
             ++it;
     }
     for (auto& e : m_enemies)
         e->applySeparation(m_enemies);
 
+	return totalXP;
 }
 
 void EnemySpawner::draw(sf::RenderWindow& window)

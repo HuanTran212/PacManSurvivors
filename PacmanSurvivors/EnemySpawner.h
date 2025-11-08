@@ -19,7 +19,7 @@ public:
     EnemySpawner();
     EnemySpawner(float interval, sf::Vector2f areaMin, sf::Vector2f areaMax);
 
-    void update(float dt, sf::Vector2f playerPosition);
+    int update(float dt, sf::Vector2f playerPosition);
     void draw(sf::RenderWindow& window);
     const std::vector<std::unique_ptr<IEnemy>>& getEnemies() const;
 };

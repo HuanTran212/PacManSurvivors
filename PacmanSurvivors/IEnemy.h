@@ -29,4 +29,7 @@ public:
 
 	// Lấy sát thương khi va chạm với người chơi
 	virtual int getCollisionDamage() const = 0;
+
+	// Lấy điểm kinh nghiệm thưởng khi bị tiêu diệt
+	virtual int getXPReward() const = 0;
 };

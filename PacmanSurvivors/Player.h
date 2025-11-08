@@ -32,4 +32,5 @@ public:
     void takeDamage(int damage);
 	void addWeapon(std::unique_ptr<IWeapon> weapon);
 	int getXPToNextLevel() const;
+	int addXP(int xpGainned);
 };

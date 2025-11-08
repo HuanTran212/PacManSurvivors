@@ -149,6 +149,20 @@ void Player::addWeapon(std::unique_ptr<IWeapon> weapon)
 
 int Player::getXPToNextLevel() const
 {
-    int xpToNextLevel = m_level + 20;
+    int xpToNextLevel = m_level * 20;
     return xpToNextLevel;
+}
+
+int Player::addXP(int xpGained)
+{
+	int xpToNextLevel = getXPToNextLevel();
+	m_xp += xpGained;
+
+    if (m_xp >= xpToNextLevel)
+    {
+        m_xp -= xpToNextLevel;
+        m_level++;
+        std::cout << "Level Up! New Level: " << m_level << std::endl;
+	}
+	return m_xp;
 }
