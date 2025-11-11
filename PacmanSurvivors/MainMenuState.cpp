@@ -57,8 +57,12 @@ void MainMenuState::update(float dt)
     // Có thể thêm hiệu ứng nhấp nháy text sau
 }
 
-void MainMenuState::draw()
+void MainMenuState::drawUI()
 {
     m_game.getWindow().draw(m_titleText);
     m_game.getWindow().draw(m_pressStartText);
+}
+
+void MainMenuState::drawWorld()
+{
 }

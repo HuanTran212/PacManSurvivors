@@ -91,7 +91,7 @@
       <Filter>Source Files\High-Level</Filter>
     </ClCompile>
     <ClCompile Include="Animator.cpp">
-      <Filter>Source Files\Scenes\Helper</Filter>
+      <Filter>Source Files\High-Level</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,9 +109,6 @@
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files\Scenes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="AssetManager.h">
-      <Filter>Header Files\Scenes\Helper</Filter>
     </ClInclude>
     <ClInclude Include="EnemySpawner.h">
       <Filter>Header Files\Scenes\Object</Filter>
@@ -148,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="UpgradeManager.h">
       <Filter>Header Files\Scenes\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager.h">
+      <Filter>Header Files\High-Level</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

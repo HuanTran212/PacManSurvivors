@@ -102,7 +102,7 @@ void UpgradeState::update(float dt)
 {
 
 }
-void UpgradeState::draw()
+void UpgradeState::drawUI()
 {
 	m_game.getWindow().draw(m_overlay);
 	m_game.getWindow().draw(m_titleText);
@@ -110,4 +110,8 @@ void UpgradeState::draw()
 	m_game.getWindow().draw(m_optionText1);
 	m_game.getWindow().draw(m_optionText2);
 	m_game.getWindow().draw(m_optionText3);
+}
+
+void UpgradeState::drawWorld()
+{
 }

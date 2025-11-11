@@ -31,7 +31,7 @@ Player::Player()
     m_animator->addAnimation("IDLE", idleFrames, 0.25f);
     m_animator->play("IDLE"); // Ban đầu đứng yên
 	m_sprite.setOrigin({ frameWidth / 2.f, frameHeight / 2.f });
-    m_sprite.setPosition({ 640, 360 });
+    m_sprite.setPosition({ 10000, 10000 });
 	m_sprite.setScale({ 2.f, 2.f });
     m_weapons.push_back(std::make_unique<PelletShooter>());
 }

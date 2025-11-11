@@ -22,6 +22,7 @@ public:
     void pushStates(std::unique_ptr<IGameState> newState);
     void popStates();
     IGameState* getCurrentState();
+	sf::View& getWorldView();
 private:
     // Các hàm vòng lặp game 
     void processInput(); // (Sẽ được state xử lý)
@@ -33,4 +34,5 @@ private:
     std::vector<std::unique_ptr<IGameState>> m_currentState;
     // Con trỏ thông minh quản lý UIManager
     std::unique_ptr<UIManager> m_uiManager;
+    sf::View m_worldView;
 };

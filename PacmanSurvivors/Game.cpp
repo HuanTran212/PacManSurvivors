@@ -9,6 +9,7 @@ Game::Game()
     m_window.setKeyRepeatEnabled(false);
     m_uiManager = std::make_unique<UIManager>();
     pushStates(std::make_unique<MainMenuState>(*this));
+    m_worldView.setSize(sf::Vector2f(1280.f, 720.f));
 }
 // Vòng lặp game chính
 void Game::run()
@@ -37,9 +38,16 @@ void Game::run()
         float dt = m_clock.restart().asSeconds();
         currentState->update(dt);
 		m_window.clear(sf::Color::Black);
+		m_window.setView(m_worldView);
         for(auto& states : m_currentState)
         {
-            currentState->draw(); // State tự vẽ
+            currentState->drawWorld(); // State tự vẽ
+		}
+
+		m_window.setView(m_window.getDefaultView());
+        for(auto& states : m_currentState)
+        {
+            currentState->drawUI(); // State tự vẽ
         }
         m_window.display();
     }
@@ -73,6 +81,11 @@ IGameState* Game::getCurrentState()
 {
     if (m_currentState.empty()) return nullptr;
     return m_currentState.back().get();
+}
+
+sf::View& Game::getWorldView()
+{
+	return m_worldView;
 }
 
 void Game::processInput() { /* Logic đã được chuyển sang State */ }

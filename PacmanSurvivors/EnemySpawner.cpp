@@ -1,5 +1,5 @@
 #include "EnemySpawner.h"
-
+#include <cmath>
 EnemySpawner::EnemySpawner()
     : spawnInterval(3.5f), spawnTimer(0.f), spawnMin({ 0.f, 0.f }), spawnMax({ 1280.f, 720.f })
 {
@@ -18,9 +18,11 @@ int EnemySpawner::update(float dt, sf::Vector2f playerPosition)
     {
         spawnTimer = 0.f;
 
-        float x = spawnMin.x + static_cast<float>(rand()) / RAND_MAX * (spawnMax.x - spawnMin.x);
-        float y = spawnMin.y + static_cast<float>(rand()) / RAND_MAX * (spawnMax.y - spawnMin.y);
-
+        const float PI = 3.14159265f;
+        float angle = static_cast<float>(rand()) / RAND_MAX * (2.f * PI);
+        float distance = 800.f + static_cast<float>(rand()) / RAND_MAX * 200.f;
+        float x = playerPosition.x + std::cos(angle) * distance;
+        float y = playerPosition.y + std::sin(angle) * distance;
         m_enemies.push_back(std::make_unique<Ghost>(sf::Vector2f(x, y)));
     }
     

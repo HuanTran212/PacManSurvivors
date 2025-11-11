@@ -3,12 +3,17 @@
 #include "MainMenuState.h"
 #include "Game.h"
 
-PlayingState::PlayingState(Game& game):
+PlayingState::PlayingState(Game& game) :
 	m_game(game),
 	m_window(game.getWindow()),
 	m_player(),
-	m_enemySpawner(2.0f, sf::Vector2f(50.0f, 50.0f), sf::Vector2f(1230.0f, 670.0f))
+	m_enemySpawner(),
+	m_backgroundSprite(AssetManager::getInstance().getTexture("map.png"))
 {
+	const sf::Texture& bgTex = AssetManager::getInstance().getTexture("map.png");
+	const_cast<sf::Texture&>(bgTex).setRepeated(true);
+	m_backgroundSprite.setTexture(bgTex);
+	m_backgroundSprite.setTextureRect(sf::IntRect({ -10000, -10000 }, { 20000, 20000 }));
 }
 
 void PlayingState::processInput()
@@ -41,22 +46,29 @@ void PlayingState::update(float dt)
 		if (!proj.isDestroyed())
 		proj.update(dt);
 	}
-
+	sf::Vector2f playerPos = m_player.getPosition();
 	m_Projectiles.erase(
 		std::remove_if(m_Projectiles.begin(), m_Projectiles.end(),
-			[](const Projectile& proj) {
+			[playerPos](const Projectile& proj) {
+				if (proj.isDestroyed()) {
+					return true;
+				}
 				sf::Vector2f pos = proj.getPosition();
-				return proj.isDestroyed() ||
-					(pos.x < 0 || pos.x > 1280 || pos.y < 0 || pos.y > 720);
+				const float despawnDistance = 1000.f;
+				bool isTooFarX = std::abs(pos.x - playerPos.x) > despawnDistance;
+				bool isTooFarY = std::abs(pos.y - playerPos.y) > despawnDistance;
+				return isTooFarX || isTooFarY;
 			}),
 		m_Projectiles.end());
 
 	checkCollisions();
 	m_game.getUIManager().update(m_player);
+	m_game.getWorldView().setCenter(m_player.getPosition());
 }
 
-void PlayingState::draw()
+void PlayingState::drawWorld()
 {
+	m_window.draw(m_backgroundSprite);
 	m_player.draw(m_window);
 	for(auto& enemy : m_enemySpawner.getEnemies())
 	{
@@ -67,6 +79,9 @@ void PlayingState::draw()
 		if (!proj.isDestroyed())
 		proj.draw(m_window);
 	}
+}
+void PlayingState::drawUI()
+{
 	m_game.getUIManager().draw(m_game.getWindow());
 }
 

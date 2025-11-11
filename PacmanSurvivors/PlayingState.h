@@ -14,7 +14,8 @@ public:
 	PlayingState(Game& game);
 	void processInput() override;
 	void update(float dt) override;
-	void draw();
+	void drawUI() override;
+	void drawWorld() override;
 private:
 	void checkCollisions();
 	Game& m_game;
@@ -22,4 +23,5 @@ private:
 	Player m_player; //đối tượng người chơi
 	EnemySpawner m_enemySpawner; //đối tượng tạo kẻ địch
 	std::vector<Projectile> m_Projectiles; //danh sách đạn bắn ra
+	sf::Sprite m_backgroundSprite; //nền game
 };

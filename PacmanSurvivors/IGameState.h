@@ -9,7 +9,8 @@ public:
 	// Cập nhật trạng thái game
 	virtual void update(float dt) = 0;
 	// Vẽ nội dung lên cửa sổ
-	virtual void draw() = 0;
+	virtual void drawWorld() = 0;
+	virtual void drawUI() = 0;
 protected:
 	IGameState() = default;
 };

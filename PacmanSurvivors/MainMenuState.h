@@ -16,6 +16,7 @@ private:
 public:
     MainMenuState(Game& game);
     void processInput() override;
-    void update(float dt);
-	void draw() override;
+    void update(float dt) override;
+	void drawUI() override;
+	void drawWorld() override;
 };

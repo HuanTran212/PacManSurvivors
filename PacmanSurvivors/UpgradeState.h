@@ -14,7 +14,8 @@ public:
 	// Cập nhật trạng thái game
 	void update(float dt) override;
 	// Vẽ nội dung lên cửa sổ
-	void draw() override;
+	void drawUI() override;
+	void drawWorld() override;
 private:
 	Game& m_game;
 	sf::Font m_font;
