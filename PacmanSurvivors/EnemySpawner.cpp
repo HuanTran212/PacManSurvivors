@@ -7,22 +7,22 @@ EnemySpawner::EnemySpawner()
     // Giai đoạn 1: 0 - 30 giây
     GameWave wave1;
     wave1.startTime = 0.f;
-    wave1.endTime = 1.f;
+    wave1.endTime = 30.f;
     wave1.rules.push_back(SpawnRule(2.0f, 1)); // 1 Ghost mỗi 2 giây
 	m_timeLine.push_back(wave1);
 
     // Giai đoạn 2: 30 - 60 giây
     GameWave wave2;
-    wave2.startTime = 1.f;
-    wave2.endTime = 2.f;
+    wave2.startTime = 30.f;
+    wave2.endTime = 60.f;
     wave2.rules.push_back(SpawnRule(1.0f, 1)); // 1 Ghost mỗi 1 giây
     wave2.rules.push_back(SpawnRule(5.0f, 3)); // 3 Ghost mỗi 5 giây
 	m_timeLine.push_back(wave2);
 
     // Giai đoạn 3: 60 giây trở đi
     GameWave wave3;
-    wave3.startTime = 2.f;
-    wave3.endTime = 9999.f; // (Chạy mãi mãi)
+    wave3.startTime = 60.f;
+    wave3.endTime = 9999.f;
     wave3.rules.push_back(SpawnRule(0.5f, 2)); // 2 Ghost mỗi 0.5 giây
 	m_timeLine.push_back(wave3);
 }
