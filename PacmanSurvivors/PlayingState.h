@@ -24,4 +24,5 @@ private:
 	EnemySpawner m_enemySpawner; //đối tượng tạo kẻ địch
 	std::vector<Projectile> m_Projectiles; //danh sách đạn bắn ra
 	sf::Sprite m_backgroundSprite; //nền game
+	float m_totalTime; //thời gian chơi
 };

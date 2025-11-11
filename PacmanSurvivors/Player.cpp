@@ -34,6 +34,10 @@ Player::Player()
     m_sprite.setPosition({ 10000, 10000 });
 	m_sprite.setScale({ 2.f, 2.f });
     m_weapons.push_back(std::make_unique<PelletShooter>());
+
+    m_hitboxDebug.setFillColor(sf::Color::Transparent);
+    m_hitboxDebug.setOutlineColor(sf::Color::Red);
+    m_hitboxDebug.setOutlineThickness(1.f);
 }
 
 Player::~Player() {};
@@ -89,6 +93,14 @@ void Player::update(float dt, std::vector<Projectile>& projectiles, const std::v
 
 void Player::draw(sf::RenderWindow& window) {
     window.draw(m_sprite);
+    sf::FloatRect bounds = this->getBounds();
+
+    // 3. Cập nhật hình chữ nhật debug
+    m_hitboxDebug.setPosition(bounds.position);
+    m_hitboxDebug.setSize(bounds.size);
+
+    // 4. Vẽ hitbox đè lên trên
+    //window.draw(m_hitboxDebug);
 }
 
 sf::Vector2f Player::getPosition() const {
@@ -98,9 +110,9 @@ sf::Vector2f Player::getPosition() const {
 sf::FloatRect Player::getBounds() const
 {
     sf::Vector2f pos = m_sprite.getPosition();
-    float left = pos.x + 48;
-    float top = pos.y + 48;
-    sf::FloatRect bounds({left, top} , { 32.f, 32.f});
+    float left = pos.x - 20;
+    float top = pos.y - 60;
+    sf::FloatRect bounds({left, top} , { 50.f, 88.f});
     return bounds;
 }
 

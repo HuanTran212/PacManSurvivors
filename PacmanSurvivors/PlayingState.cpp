@@ -8,6 +8,7 @@ PlayingState::PlayingState(Game& game) :
 	m_window(game.getWindow()),
 	m_player(),
 	m_enemySpawner(),
+	m_totalTime(0.f),
 	m_backgroundSprite(AssetManager::getInstance().getTexture("map.png"))
 {
 	const sf::Texture& bgTex = AssetManager::getInstance().getTexture("map.png");
@@ -31,7 +32,7 @@ void PlayingState::processInput()
 void PlayingState::update(float dt)
 {
 	m_player.update(dt, m_Projectiles, m_enemySpawner.getEnemies());
-	int xpGained = m_enemySpawner.update(dt, m_player.getPosition());
+	int xpGained = m_enemySpawner.update(dt, m_player.getPosition(), m_totalTime);
 	if (xpGained > 0)
 	{
 		bool flap = m_player.addXP(xpGained);

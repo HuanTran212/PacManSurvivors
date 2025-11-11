@@ -18,7 +18,7 @@ private:
 	sf::Vector2f m_lastDirection;
     std::vector<std::unique_ptr<IWeapon>> m_weapons;
     void processInput(float dt);
-
+	sf::RectangleShape m_hitboxDebug;
 public:
     Player();
 	~Player();
