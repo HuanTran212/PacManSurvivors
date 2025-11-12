@@ -21,7 +21,7 @@ public:
 
     // Cập nhật logic animation (đây là phần DSA)
     void update(float dt);
-
+	sf::Sprite& getSprite();
 	void setSprite(sf::Sprite& sprite);
 private:
 	sf::Sprite* m_sprite;

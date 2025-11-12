@@ -46,46 +46,43 @@
     <Filter Include="Header Files\Scenes\Object">
       <UniqueIdentifier>{50eb6d52-cc52-4273-a70b-82818c743402}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Scenes\Scene\States">
+      <UniqueIdentifier>{2367c81a-642d-40b0-82b2-d36effe78955}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scenes\Scene\Upgrade">
+      <UniqueIdentifier>{9089ddf0-3b6b-4f3c-8e25-59888244e210}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scenes\Object\PLayer">
+      <UniqueIdentifier>{9a9865c7-f76e-457f-8bdf-3e591e726775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scenes\Object\Ghost">
+      <UniqueIdentifier>{d8fa32ef-a863-4acd-9cd2-1c0281fb750f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scenes\Object\Weapon">
+      <UniqueIdentifier>{77cba4e4-c193-4c43-b220-a9f7485c1cbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes\Object\Ghost">
+      <UniqueIdentifier>{e28718d8-f6ff-4b8b-a919-f17aa9fed502}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes\Object\Player">
+      <UniqueIdentifier>{8b56d083-e89d-4e15-b5ff-539fffd2eb97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes\Object\Weapon">
+      <UniqueIdentifier>{9ac7e2fb-4849-431b-823b-b892c6be3eff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes\Scene\States">
+      <UniqueIdentifier>{e02e414a-6134-4627-a3bd-15a8f254fb14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes\Scene\Upgrade">
+      <UniqueIdentifier>{fe7d9908-05c4-453e-8741-d6b80321adf1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EnemySpawner.cpp">
-      <Filter>Source Files\Scenes\Object</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files\Scenes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Ghost.cpp">
-      <Filter>Source Files\Scenes\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenuState.cpp">
-      <Filter>Source Files\Scenes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="PelletShooter.cpp">
-      <Filter>Source Files\Scenes\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Scenes\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayingState.cpp">
-      <Filter>Source Files\Scenes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Projectile.cpp">
-      <Filter>Source Files\Scenes\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="UpgradeState.cpp">
-      <Filter>Source Files\Scenes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="UIManager.cpp">
-      <Filter>Source Files\Scenes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="HealthUpgrade.cpp">
-      <Filter>Source Files\Scenes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="UpgradeManager.cpp">
-      <Filter>Source Files\Scenes\Helper</Filter>
     </ClCompile>
     <ClCompile Include="AssetManager.cpp">
       <Filter>Source Files\High-Level</Filter>
@@ -93,31 +90,58 @@
     <ClCompile Include="Animator.cpp">
       <Filter>Source Files\High-Level</Filter>
     </ClCompile>
+    <ClCompile Include="OrbitalWeaponUpgrade.h">
+      <Filter>Header Files\Scenes\Scene\Upgrade</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySpawner.cpp">
+      <Filter>Source Files\Scenes\Object\Ghost</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost.cpp">
+      <Filter>Source Files\Scenes\Object\Ghost</Filter>
+    </ClCompile>
+    <ClCompile Include="OrbitalWeapon.cpp">
+      <Filter>Source Files\Scenes\Object\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="PelletShooter.cpp">
+      <Filter>Source Files\Scenes\Object\Weapon</Filter>
+    </ClCompile>
     <ClCompile Include="Pinky.cpp">
-      <Filter>Source Files\Scenes\Object</Filter>
+      <Filter>Source Files\Scenes\Object\Ghost</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Scenes\Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Source Files\Scenes\Object\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthUpgrade.cpp">
+      <Filter>Source Files\Scenes\Scene\Upgrade</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Source Files\Scenes\Scene\States</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayingState.cpp">
+      <Filter>Source Files\Scenes\Scene\States</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>Source Files\High-Level</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeState.cpp">
+      <Filter>Source Files\Scenes\Scene\States</Filter>
+    </ClCompile>
+    <ClCompile Include="OrbitalWeaponUpgrade.cpp">
+      <Filter>Source Files\Scenes\Scene\Upgrade</Filter>
+    </ClCompile>
+    <ClCompile Include="UpgradeManager.cpp">
+      <Filter>Source Files\Scenes\Scene\Upgrade</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animator.h">
       <Filter>Header Files\High-Level</Filter>
     </ClInclude>
-    <ClInclude Include="MainMenuState.h">
-      <Filter>Header Files\Scenes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="UIManager.h">
-      <Filter>Header Files\Scenes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="UpgradeState.h">
-      <Filter>Header Files\Scenes\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files\Scenes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemySpawner.h">
-      <Filter>Header Files\Scenes\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Ghost.h">
-      <Filter>Header Files\Scenes\Object</Filter>
     </ClInclude>
     <ClInclude Include="IEnemy.h">
       <Filter>Header Files\Scenes\Helper</Filter>
@@ -128,32 +152,50 @@
     <ClInclude Include="IWeapon.h">
       <Filter>Header Files\Scenes\Helper</Filter>
     </ClInclude>
-    <ClInclude Include="PelletShooter.h">
-      <Filter>Header Files\Scenes\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\Scenes\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayingState.h">
-      <Filter>Header Files\Scenes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Projectile.h">
-      <Filter>Header Files\Scenes\Object</Filter>
-    </ClInclude>
     <ClInclude Include="IUpgrade.h">
-      <Filter>Header Files\Scenes\Helper</Filter>
-    </ClInclude>
-    <ClInclude Include="HealthUpgrade.h">
-      <Filter>Header Files\Scenes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="UpgradeManager.h">
       <Filter>Header Files\Scenes\Helper</Filter>
     </ClInclude>
     <ClInclude Include="AssetManager.h">
       <Filter>Header Files\High-Level</Filter>
     </ClInclude>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Header Files\Scenes\Scene\States</Filter>
+    </ClInclude>
+    <ClInclude Include="UpgradeState.h">
+      <Filter>Header Files\Scenes\Scene\States</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthUpgrade.h">
+      <Filter>Header Files\Scenes\Scene\Upgrade</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayingState.h">
+      <Filter>Header Files\Scenes\Scene\States</Filter>
+    </ClInclude>
     <ClInclude Include="Pinky.h">
-      <Filter>Header Files\Scenes\Object</Filter>
+      <Filter>Header Files\Scenes\Object\Ghost</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Scenes\Object\PLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySpawner.h">
+      <Filter>Header Files\Scenes\Object\Ghost</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost.h">
+      <Filter>Header Files\Scenes\Object\Ghost</Filter>
+    </ClInclude>
+    <ClInclude Include="OrbitalWeapon.h">
+      <Filter>Header Files\Scenes\Object\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="PelletShooter.h">
+      <Filter>Header Files\Scenes\Object\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Header Files\Scenes\Object\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>Header Files\High-Level</Filter>
+    </ClInclude>
+    <ClInclude Include="UpgradeManager.h">
+      <Filter>Header Files\Scenes\Scene\Upgrade</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -138,6 +138,9 @@
     <ClCompile Include="HealthUpgrade.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="OrbitalWeapon.cpp" />
+    <ClCompile Include="OrbitalWeaponUpgrade.cpp" />
+    <ClCompile Include="OrbitalWeaponUpgrade.h" />
     <ClCompile Include="PelletShooter.cpp" />
     <ClCompile Include="Pinky.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -160,6 +163,7 @@
     <ClInclude Include="IUpgrade.h" />
     <ClInclude Include="IWeapon.h" />
     <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="OrbitalWeapon.h" />
     <ClInclude Include="PelletShooter.h" />
     <ClInclude Include="Pinky.h" />
     <ClInclude Include="Player.h" />

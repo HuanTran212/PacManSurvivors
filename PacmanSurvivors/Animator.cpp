@@ -42,6 +42,11 @@ void Animator::update(float dt)
 	}
 }
 
+sf::Sprite& Animator::getSprite()
+{
+	return *m_sprite;
+}
+
 void Animator::setSprite(sf::Sprite& sprite)
 {
 	m_sprite = &sprite;

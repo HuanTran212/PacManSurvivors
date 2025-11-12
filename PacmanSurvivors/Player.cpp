@@ -119,6 +119,9 @@ void Player::draw(sf::RenderWindow& window) {
     m_hitboxDebug.setPosition(bounds.position);
     m_hitboxDebug.setSize(bounds.size);
 
+    for(auto& weapon : m_weapons) {
+        weapon->draw(window);
+	}
     // 4. Vẽ hitbox đè lên trên
     //window.draw(m_hitboxDebug);
 }
@@ -160,7 +163,7 @@ void Player::takeDamage(int damage) {
     if(m_animator->play("HURT"), m_isHurt)
 		return; // Đang trong trạng thái bị thương, không nhận thêm sát thương
 	m_isHurt = true;
-	m_hurtTimer = 0.4; // Thời gian bất tử sau khi bị thương
+	m_hurtTimer = 0.4f; // Thời gian bất tử sau khi bị thương
 	m_animator->play("HURT");
     m_hp -= damage;
     if(m_hp < 0)

@@ -5,8 +5,8 @@
 class HealthUpgrade : public IUpgrade {
 public:
 	HealthUpgrade();
-	void applyUpgrade(Player& player);
-	std::string getName() const;
+	void applyUpgrade(Player& player) override;
+	std::string getName() const override;
 private:
 	int m_hpToAdd;
 };
