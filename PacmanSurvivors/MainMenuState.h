@@ -13,6 +13,8 @@ private:
     sf::Text m_pressStartText;
     Game& m_game;
 	bool m_startGame = false;
+	sf::Text m_exitText;
+	sf::Sprite m_backgroundSprite;
 public:
     MainMenuState(Game& game);
     void processInput() override;
