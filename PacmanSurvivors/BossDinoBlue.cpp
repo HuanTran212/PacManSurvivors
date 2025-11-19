@@ -1,9 +1,9 @@
-﻿#include "BossGreen.h"
+﻿#include "BossDinoBlue.h"
 #include "AssetManager.h"
 #include <cmath>
 
-BossGreen::BossGreen(sf::Vector2f spawnPos)
-    : m_sprite(AssetManager::getInstance().getTexture("Dino.png")),
+BossDinoBlue::BossDinoBlue(sf::Vector2f spawnPos)
+    : m_sprite(AssetManager::getInstance().getTexture("DinoBlue.png")),
     m_speed(60.0f),
     m_velocity(0.f, 0.f),
     m_health(200.f),
@@ -57,7 +57,7 @@ BossGreen::BossGreen(sf::Vector2f spawnPos)
     m_hitboxDebug.setOutlineThickness(1.f);*/
 }
 
-void BossGreen::update(float dt, sf::Vector2f playerPos)
+void BossDinoBlue::update(float dt, sf::Vector2f playerPos)
 {
     m_animator->update(dt);
 
@@ -134,7 +134,7 @@ void BossGreen::update(float dt, sf::Vector2f playerPos)
 
 }
 
-void BossGreen::draw(sf::RenderWindow& window)
+void BossDinoBlue::draw(sf::RenderWindow& window)
 {
     window.draw(m_shadowSprite);
     window.draw(m_sprite);
@@ -145,11 +145,11 @@ void BossGreen::draw(sf::RenderWindow& window)
     window.draw(m_hitboxDebug);*/
 }
 
-sf::FloatRect BossGreen::getBounds() const
+sf::FloatRect BossDinoBlue::getBounds() const
 {
     return m_sprite.getGlobalBounds();
 }
-void BossGreen::takeDamage(int damage)
+void BossDinoBlue::takeDamage(int damage)
 {
     m_isHurt = true;
     m_hurtTimer = 3.f;
@@ -159,27 +159,27 @@ void BossGreen::takeDamage(int damage)
         m_health = 0.f;
 }
 
-bool BossGreen::isDead() const
+bool BossDinoBlue::isDead() const
 {
     return m_health <= 0.f;
 }
 
-int BossGreen::getCollisionDamage() const
+int BossDinoBlue::getCollisionDamage() const
 {
     return 20;
 }
 
-sf::Vector2f BossGreen::getPosition() const
+sf::Vector2f BossDinoBlue::getPosition() const
 {
     return m_sprite.getPosition();
 }
 
-void BossGreen::setPosition(sf::Vector2f pos)
+void BossDinoBlue::setPosition(sf::Vector2f pos)
 {
     m_sprite.setPosition(pos);
 }
 
-void BossGreen::applySeparation(const std::vector<std::unique_ptr<IEnemy>>& others)
+void BossDinoBlue::applySeparation(const std::vector<std::unique_ptr<IEnemy>>& others)
 {
     sf::Vector2f repel(0.f, 0.f);
     float desiredDistance = 40.f; // khoảng cách tối thiểu giữa quái
@@ -200,12 +200,12 @@ void BossGreen::applySeparation(const std::vector<std::unique_ptr<IEnemy>>& othe
     m_sprite.move(repel * 0.2f); // đẩy nhẹ ra
 }
 
-int BossGreen::getXPReward() const
+int BossDinoBlue::getXPReward() const
 {
     return 200;
 }
 
-void BossGreen::applyKnockback(sf::Vector2f direction, float force)
+void BossDinoBlue::applyKnockback(sf::Vector2f direction, float force)
 {
     m_knockbackVelocity += direction * force;
     m_isKnockBack = true;

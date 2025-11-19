@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "IEnemy.h"
 
-class BossGreen : public IEnemy
+class DinoBlue : public IEnemy
 {
 private:
 
@@ -22,7 +22,7 @@ private:
     sf::Sprite m_shadowSprite;
     //sf::RectangleShape m_hitboxDebug;
 public:
-    BossGreen(sf::Vector2f spawnPos);
+    DinoBlue(sf::Vector2f spawnPos);
 
     void update(float dt, sf::Vector2f playerPos) override;
 
