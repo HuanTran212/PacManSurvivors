@@ -210,3 +210,13 @@ void Player::addmaxHP(int amount)
     m_maxHP += amount;
 	m_hp += amount; // Cũng hồi phục thêm tương ứng
 }
+
+void Player::addMoveSpeed(float amount)
+{
+	m_speed += amount;
+}
+
+float Player::getMoveSpeed() const
+{
+	return m_speed;
+}

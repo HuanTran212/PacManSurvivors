@@ -52,4 +52,7 @@ public:
 			}
 			return nullptr;
 		}
+
+	void addMoveSpeed(float amount);
+	float getMoveSpeed() const;
 };
