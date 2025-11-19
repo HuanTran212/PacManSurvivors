@@ -134,6 +134,7 @@
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BossDinoBlue.cpp" />
     <ClCompile Include="BossGreen.cpp" />
     <ClCompile Include="DinoBlue.cpp" />
     <ClCompile Include="GameOverState.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="Animator.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Boss.h" />
+    <ClInclude Include="BossDinoBlue.h" />
     <ClInclude Include="BossGreen.h" />
     <ClInclude Include="DinoBlue.h" />
     <ClInclude Include="Game.h" />

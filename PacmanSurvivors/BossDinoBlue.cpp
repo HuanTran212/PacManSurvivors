@@ -3,7 +3,7 @@
 #include <cmath>
 
 BossDinoBlue::BossDinoBlue(sf::Vector2f spawnPos)
-    : m_sprite(AssetManager::getInstance().getTexture("Dino.png")),
+    : m_sprite(AssetManager::getInstance().getTexture("DinoBlue.png")),
     m_speed(60.0f),
     m_velocity(0.f, 0.f),
     m_health(200.f),
