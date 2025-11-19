@@ -1,5 +1,5 @@
 ﻿#include "EnemySpawner.h"
-#include "Ghost.h"
+#include "DinoGreen.h"
 #include "Pinky.h"
 #include "Boss.h"
 #include <cmath>

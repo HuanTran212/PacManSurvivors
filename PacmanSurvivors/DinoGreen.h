@@ -11,6 +11,10 @@ private:
     float m_health; // để dùng với TakeDamage và IsDead
 	sf::Vector2f m_knockbackVelocity;
     bool m_isKnockBack;
+    bool m_isHurt;
+    float m_hurtTimer;
+    sf::Sprite m_shadowSprite;
+	std::unique_ptr<Animator> m_animator;
 public:
     Ghost(sf::Vector2f spawnPos = { 300.f, 400.f });
 

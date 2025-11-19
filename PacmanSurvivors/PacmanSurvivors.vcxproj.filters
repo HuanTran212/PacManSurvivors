@@ -96,7 +96,7 @@
     <ClCompile Include="EnemySpawner.cpp">
       <Filter>Source Files\Scenes\Object\Ghost</Filter>
     </ClCompile>
-    <ClCompile Include="Ghost.cpp">
+    <ClCompile Include="DinoGreen.cpp">
       <Filter>Source Files\Scenes\Object\Ghost</Filter>
     </ClCompile>
     <ClCompile Include="OrbitalWeapon.cpp">
@@ -197,7 +197,7 @@
     <ClInclude Include="EnemySpawner.h">
       <Filter>Header Files\Scenes\Object\Ghost</Filter>
     </ClInclude>
-    <ClInclude Include="Ghost.h">
+    <ClInclude Include="DinoGreen.h">
       <Filter>Header Files\Scenes\Object\Ghost</Filter>
     </ClInclude>
     <ClInclude Include="OrbitalWeapon.h">
