@@ -3,7 +3,7 @@
 #include <cmath>
 
 BossGreen::BossGreen(sf::Vector2f spawnPos)
-    : m_sprite(AssetManager::getInstance().getTexture("Dino.png")),
+    : m_sprite(AssetManager::getInstance().getTexture("DinoGreen.png")),
     m_speed(60.0f),
     m_velocity(0.f, 0.f),
     m_health(200.f),
@@ -22,21 +22,21 @@ BossGreen::BossGreen(sf::Vector2f spawnPos)
 
     for (int i = 0; i < 7; ++i)
     {
-        walk.emplace_back(sf::IntRect({ frameWidth * i, frameHeight * 3 }, { frameWidth, frameHeight }));
+        walk.emplace_back(sf::IntRect({ frameWidth * i, frameHeight * 2 }, { frameWidth, frameHeight }));
     }
 
     std::vector<sf::IntRect> run;
 
     for (int i = 0; i < 7; ++i)
     {
-        run.emplace_back(sf::IntRect({ frameWidth * i, frameHeight * 1 }, { frameWidth, frameHeight }));
+        run.emplace_back(sf::IntRect({ frameWidth * i, frameHeight * 0 }, { frameWidth, frameHeight }));
     }
 
     std::vector<sf::IntRect> hurt;
 
     for (int i = 0; i < 3; ++i)
     {
-        hurt.emplace_back(sf::IntRect({ frameWidth * i, frameHeight * 2 }, { frameWidth, frameHeight }));
+        hurt.emplace_back(sf::IntRect({ frameWidth * i, frameHeight * 1 }, { frameWidth, frameHeight }));
     }
 
 

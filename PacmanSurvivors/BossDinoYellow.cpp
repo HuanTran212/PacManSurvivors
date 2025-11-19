@@ -1,9 +1,9 @@
-﻿#include "BossDinoBlue.h"
+﻿#include "BossDinoYellow.h"
 #include "AssetManager.h"
 #include <cmath>
 
-BossDinoBlue::BossDinoBlue(sf::Vector2f spawnPos)
-    : m_sprite(AssetManager::getInstance().getTexture("DinoBlue.png")),
+BossDinoYellow::BossDinoYellow(sf::Vector2f spawnPos)
+    : m_sprite(AssetManager::getInstance().getTexture("DinoYellow.png")),
     m_speed(60.0f),
     m_velocity(0.f, 0.f),
     m_health(200.f),
@@ -47,7 +47,7 @@ BossDinoBlue::BossDinoBlue(sf::Vector2f spawnPos)
 
     m_sprite.setOrigin({ frameWidth / 2.f, frameHeight / 2.f });
     m_sprite.setPosition(spawnPos);
-    m_sprite.setScale({ 5.f, 5.f });
+    m_sprite.setScale({ 2.f, 2.f });
 
     m_shadowSprite.setScale({ 5.f, 5.f });
     m_shadowSprite.setOrigin({ 12.f, 12.f });
@@ -57,7 +57,7 @@ BossDinoBlue::BossDinoBlue(sf::Vector2f spawnPos)
     m_hitboxDebug.setOutlineThickness(1.f);*/
 }
 
-void BossDinoBlue::update(float dt, sf::Vector2f playerPos)
+void BossDinoYellow::update(float dt, sf::Vector2f playerPos)
 {
     m_animator->update(dt);
 
@@ -134,7 +134,7 @@ void BossDinoBlue::update(float dt, sf::Vector2f playerPos)
 
 }
 
-void BossDinoBlue::draw(sf::RenderWindow& window)
+void BossDinoYellow::draw(sf::RenderWindow& window)
 {
     window.draw(m_shadowSprite);
     window.draw(m_sprite);
@@ -145,11 +145,11 @@ void BossDinoBlue::draw(sf::RenderWindow& window)
     window.draw(m_hitboxDebug);*/
 }
 
-sf::FloatRect BossDinoBlue::getBounds() const
+sf::FloatRect BossDinoYellow::getBounds() const
 {
     return m_sprite.getGlobalBounds();
 }
-void BossDinoBlue::takeDamage(int damage)
+void BossDinoYellow::takeDamage(int damage)
 {
     m_isHurt = true;
     m_hurtTimer = 3.f;
@@ -159,27 +159,27 @@ void BossDinoBlue::takeDamage(int damage)
         m_health = 0.f;
 }
 
-bool BossDinoBlue::isDead() const
+bool BossDinoYellow::isDead() const
 {
     return m_health <= 0.f;
 }
 
-int BossDinoBlue::getCollisionDamage() const
+int BossDinoYellow::getCollisionDamage() const
 {
     return 20;
 }
 
-sf::Vector2f BossDinoBlue::getPosition() const
+sf::Vector2f BossDinoYellow::getPosition() const
 {
     return m_sprite.getPosition();
 }
 
-void BossDinoBlue::setPosition(sf::Vector2f pos)
+void BossDinoYellow::setPosition(sf::Vector2f pos)
 {
     m_sprite.setPosition(pos);
 }
 
-void BossDinoBlue::applySeparation(const std::vector<std::unique_ptr<IEnemy>>& others)
+void BossDinoYellow::applySeparation(const std::vector<std::unique_ptr<IEnemy>>& others)
 {
     sf::Vector2f repel(0.f, 0.f);
     float desiredDistance = 40.f; // khoảng cách tối thiểu giữa quái
@@ -200,12 +200,12 @@ void BossDinoBlue::applySeparation(const std::vector<std::unique_ptr<IEnemy>>& o
     m_sprite.move(repel * 0.2f); // đẩy nhẹ ra
 }
 
-int BossDinoBlue::getXPReward() const
+int BossDinoYellow::getXPReward() const
 {
     return 200;
 }
 
-void BossDinoBlue::applyKnockback(sf::Vector2f direction, float force)
+void BossDinoYellow::applyKnockback(sf::Vector2f direction, float force)
 {
     m_knockbackVelocity += direction * force;
     m_isKnockBack = true;

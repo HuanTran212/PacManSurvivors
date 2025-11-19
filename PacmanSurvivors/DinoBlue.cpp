@@ -22,21 +22,21 @@ DinoBlue::DinoBlue(sf::Vector2f spawnPos)
 
     for (int i = 0; i < 7; ++i)
     {
-        walk.emplace_back(sf::IntRect({ frameWidth * i, frameHeight * 3 }, { frameWidth, frameHeight }));
+        walk.emplace_back(sf::IntRect({ frameWidth * i, frameHeight * 2 }, { frameWidth, frameHeight }));
     }
 
     std::vector<sf::IntRect> run;
 
     for (int i = 0; i < 7; ++i)
     {
-        run.emplace_back(sf::IntRect({ frameWidth * i, frameHeight * 1 }, { frameWidth, frameHeight }));
+        run.emplace_back(sf::IntRect({ frameWidth * i, frameHeight * 0 }, { frameWidth, frameHeight }));
     }
 
     std::vector<sf::IntRect> hurt;
 
     for (int i = 0; i < 3; ++i)
     {
-        hurt.emplace_back(sf::IntRect({ frameWidth * i, frameHeight * 2 }, { frameWidth, frameHeight }));
+        hurt.emplace_back(sf::IntRect({ frameWidth * i, frameHeight * 1 }, { frameWidth, frameHeight }));
     }
 
 
@@ -121,11 +121,11 @@ void DinoBlue::update(float dt, sf::Vector2f playerPos)
 
             if (m_velocity.x > 0.f)
             {
-                m_sprite.setScale({ 5.f, 5.f });
+                m_sprite.setScale({ 2.f, 2.f });
             }
             else if (m_velocity.x < 0.f)
             {
-                m_sprite.setScale({ -5.f, 5.f });
+                m_sprite.setScale({ -2.f, 2.f });
             }
             m_sprite.move((m_velocity)*dt);
             m_shadowSprite.setPosition(m_sprite.getPosition());

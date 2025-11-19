@@ -3,15 +3,26 @@
 #include <vector>
 #include <memory>
 #include <cstdlib>
-#include "IEnemy.h"
 #include "DinoGreen.h"
+#include "DinoBlue.h"
+#include "DinoYellow.h"
 #include "Pinky.h"
+#include "Boss.h"
+#include "BossGreen.h"
+#include "BossDinoBlue.h"
+#include "BossDinoYellow.h"
 
 enum class EnemyType
 {
-    Ghost,
     Pinky,
-    Boss
+	DinoBlue,
+	DinoGreen,
+	DinoYellow,
+    Boss,
+	BossGreen,
+	BossDinoBlue,
+	BossDinoYellow,
+
 };
 
 struct SpawnRule

@@ -2,7 +2,7 @@
 #include "AssetManager.h"
 #include <cmath>
 
-Ghost::Ghost(sf::Vector2f spawnPos)
+DinoGreen::DinoGreen(sf::Vector2f spawnPos)
     : m_sprite(AssetManager::getInstance().getTexture("DinoGreen.png")),
     m_speed(60.0f),
     m_velocity(0.f, 0.f),
@@ -53,7 +53,7 @@ Ghost::Ghost(sf::Vector2f spawnPos)
     m_hitboxDebug.setOutlineThickness(1.f);*/
 }
 
-void Ghost::update(float dt, sf::Vector2f playerPos)
+void DinoGreen::update(float dt, sf::Vector2f playerPos)
 {
     m_animator->update(dt);
 
@@ -79,8 +79,8 @@ void Ghost::update(float dt, sf::Vector2f playerPos)
     }
     else
     {
-        sf::Vector2f ghostPos = m_sprite.getPosition();
-        sf::Vector2f direction = playerPos - ghostPos;
+        sf::Vector2f DinoGreenPos = m_sprite.getPosition();
+        sf::Vector2f direction = playerPos - DinoGreenPos;
         float length = std::sqrt(direction.x * direction.x + direction.y * direction.y);
         float desiredDistance = 150.f;
         float runSpeed = m_speed;
@@ -122,7 +122,7 @@ void Ghost::update(float dt, sf::Vector2f playerPos)
 
 }
 
-void Ghost::draw(sf::RenderWindow& window)
+void DinoGreen::draw(sf::RenderWindow& window)
 {
     window.draw(m_shadowSprite);
     window.draw(m_sprite);
@@ -133,7 +133,7 @@ void Ghost::draw(sf::RenderWindow& window)
     window.draw(m_hitboxDebug);*/
 }
 
-sf::FloatRect Ghost::getBounds() const
+sf::FloatRect DinoGreen::getBounds() const
 {
     sf::Vector2f pos = m_sprite.getPosition();
     float left = pos.x - 15;
@@ -143,7 +143,7 @@ sf::FloatRect Ghost::getBounds() const
     return bounds;
 }
 
-void Ghost::takeDamage(int damage)
+void DinoGreen::takeDamage(int damage)
 {
     m_isHurt = true;
     m_hurtTimer = 3.f;
@@ -153,27 +153,27 @@ void Ghost::takeDamage(int damage)
         m_health = 0.f;
 }
 
-bool Ghost::isDead() const
+bool DinoGreen::isDead() const
 {
     return m_health <= 0.f;
 }
 
-int Ghost::getCollisionDamage() const
+int DinoGreen::getCollisionDamage() const
 {
     return 15;
 }
 
-sf::Vector2f Ghost::getPosition() const
+sf::Vector2f DinoGreen::getPosition() const
 {
     return m_sprite.getPosition();
 }
 
-void Ghost::setPosition(sf::Vector2f pos)
+void DinoGreen::setPosition(sf::Vector2f pos)
 {
     m_sprite.setPosition(pos);
 }
 
-void Ghost::applySeparation(const std::vector<std::unique_ptr<IEnemy>>& others)
+void DinoGreen::applySeparation(const std::vector<std::unique_ptr<IEnemy>>& others)
 {
     sf::Vector2f repel(0.f, 0.f);
     float desiredDistance = 40.f; // khoảng cách tối thiểu giữa quái
@@ -196,12 +196,12 @@ void Ghost::applySeparation(const std::vector<std::unique_ptr<IEnemy>>& others)
     m_sprite.move(repel * 0.2f); // đẩy nhẹ ra
 }
 
-int Ghost::getXPReward() const
+int DinoGreen::getXPReward() const
 {
     return 15;
 }
 
-void Ghost::applyKnockback(sf::Vector2f direction, float force)
+void DinoGreen::applyKnockback(sf::Vector2f direction, float force)
 {
     m_knockbackVelocity += direction * force;
     m_isKnockBack = true;
