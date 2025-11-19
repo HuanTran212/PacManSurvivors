@@ -138,6 +138,7 @@
     <ClCompile Include="BossGreen.cpp" />
     <ClCompile Include="DinoBlue.cpp" />
     <ClCompile Include="GameOverState.cpp" />
+    <ClCompile Include="HealUpgrade.cpp" />
     <ClCompile Include="PelletShooterUpgrade.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="DinoGreen.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="DinoGreen.h" />
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="HealthUpgrade.h" />
+    <ClInclude Include="HealUpgrade.h" />
     <ClInclude Include="IEnemy.h" />
     <ClInclude Include="IGameState.h" />
     <ClInclude Include="IUpgrade.h" />
