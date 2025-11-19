@@ -7,6 +7,8 @@
 #include "OrbitalWeaponUpgrade.h"
 #include "RandomShooterUpgrade.h"
 #include "PelletShooterUpgrade.h"
+#include "SpeedUpgrade.h"
+#include "HealUpgrade.h"
 
 UpgradeManager& UpgradeManager::getInstance() {
 	static UpgradeManager instance;
@@ -18,6 +20,8 @@ UpgradeManager::UpgradeManager() {
 	m_upgradePool.push_back(std::make_unique<OrbitalWeaponUpgrade>());
 	m_upgradePool.push_back(std::make_unique<RandomShooterUpgrade>());
 	m_upgradePool.push_back(std::make_unique<PelletShooterUprade>());
+	m_upgradePool.push_back(std::make_unique<SpeedUpgrade>());
+	m_upgradePool.push_back(std::make_unique<HealUpgrade>());
 }
 
 std::vector<IUpgrade*> UpgradeManager::getRandomUpgrades(int count) {
