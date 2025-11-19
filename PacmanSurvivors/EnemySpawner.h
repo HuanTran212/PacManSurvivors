@@ -4,7 +4,7 @@
 #include <memory>
 #include <cstdlib>
 #include "IEnemy.h"
-#include "Ghost.h"
+#include "DinoGreen.h"
 #include "Pinky.h"
 
 enum class EnemyType

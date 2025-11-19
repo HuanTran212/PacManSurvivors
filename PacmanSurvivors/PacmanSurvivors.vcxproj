@@ -134,10 +134,11 @@
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BossGreen.cpp" />
     <ClCompile Include="GameOverState.cpp" />
     <ClCompile Include="PelletShooterUpgrade.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Ghost.cpp" />
+    <ClCompile Include="DinoGreen.cpp" />
     <ClCompile Include="HealthUpgrade.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
@@ -161,9 +162,10 @@
     <ClInclude Include="Animator.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Boss.h" />
+    <ClInclude Include="BossGreen.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameOverState.h" />
-    <ClInclude Include="Ghost.h" />
+    <ClInclude Include="DinoGreen.h" />
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="HealthUpgrade.h" />
     <ClInclude Include="IEnemy.h" />
