@@ -135,6 +135,7 @@
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BossGreen.cpp" />
+    <ClCompile Include="DinoBlue.cpp" />
     <ClCompile Include="GameOverState.cpp" />
     <ClCompile Include="PelletShooterUpgrade.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BossGreen.h" />
+    <ClInclude Include="DinoBlue.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameOverState.h" />
     <ClInclude Include="DinoGreen.h" />
