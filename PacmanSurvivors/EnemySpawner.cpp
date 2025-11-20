@@ -56,14 +56,14 @@ EnemySpawner::EnemySpawner()
 
     // Giai đoạn 3: 120 giây trở đi
     GameWave wave3;
-    wave3.startTime = 60.f;
-    wave3.endTime = 120.f;
+    wave3.startTime = 120.f;
+    wave3.endTime = 180.f;
     wave3.rules.push_back(SpawnRule(EnemyType::DinoYellow, 1.f, 1));
 	wave3.rules.push_back(SpawnRule(EnemyType::Pinky, 1.5f, 2)); 
 	m_timeLine.push_back(wave3);
 
     GameWave waveBoss;
-    waveBoss.startTime = 90.f;
+    waveBoss.startTime = 180.f;
     waveBoss.endTime = 9999.f;
     waveBoss.events.push_back(SpawnEvent(EnemyType::Boss, 1));
     waveBoss.events.push_back(SpawnEvent(EnemyType::BossGreen, 1));

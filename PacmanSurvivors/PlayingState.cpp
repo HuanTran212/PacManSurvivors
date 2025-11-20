@@ -15,7 +15,6 @@ PlayingState::PlayingState(Game& game) :
 	SoundManager::getInstance().stopMusic();
 	SoundManager::getInstance().playMusic("GamePlay.ogg");
 	const_cast<sf::Texture&>(m_backgroundSprite.getTexture()).setRepeated(true);
-	m_backgroundSprite.setTexture((m_backgroundSprite.getTexture()));
 	m_backgroundSprite.setTextureRect(sf::IntRect({ -100000, -100000 }, { 200000, 200000 }));
 }
 
